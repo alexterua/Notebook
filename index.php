@@ -1,10 +1,9 @@
 <?php
 
-// Чтение таблицы из БД
-$pdo = new PDO("mysql:host=localhost; dbname=db_note", "root", "");
-$statement = $pdo->prepare("SELECT * FROM tasks");
-$statement->execute();
-$tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+require_once 'database/QueryBuilder.php';
+
+$db = new QueryBuilder();
+$tasks = $db->getAll("tasks");
 
 ?>
 

@@ -1,11 +1,10 @@
 <?php
 
-// Чтение одной записи по id из таблицы БД
-$pdo = new PDO("mysql:host=localhost; dbname=db_note", "root", "");
-$sql = "SELECT * FROM tasks WHERE id=:id";
-$statement = $pdo->prepare($sql);
-$statement->execute($_GET);
-$task = $statement->fetch(PDO::FETCH_ASSOC);
+require_once 'database/QueryBuilder.php';
+
+$id = $_GET;
+$db = new QueryBuilder();
+$task = $db->getOne("tasks", $id);
 
 ?>
 
