@@ -1,9 +1,34 @@
 <?php
 
+if(!session_status()) {
+    session_start();
+}
+
 require_once 'database/QueryBuilder.php';
+require_once 'components/Auth.php';
 
 $db = new QueryBuilder();
 $tasks = $db->getAll("tasks");
+
+# АВТОРИЗАЦИЯ
+$auth = new Auth($db);
+
+//$auth->register('user3@example.com', 'asd');
+
+$auth->login("users", 'user3@example.com', 'asd');
+/*if($auth->login('user3@example.com', 'asd')) {
+    echo 'OK';
+} else {
+    echo 'Такого пользователя не существует';
+}*/
+/*$auth->logout();
+var_dump($_SESSION);*/
+//var_dump($auth->isChecked());
+$user = $auth->currentUser();
+/*$user['email'];
+$user['username'];
+$user['password'];*/
+$auth->fullName();
 
 ?>
 

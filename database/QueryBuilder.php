@@ -41,8 +41,6 @@ class QueryBuilder
         //$statement->bindParam(":content", $_POST['content']);
         // Выполнение запроса с параметрами
         $statement->execute($data);
-
-        header("Location: /"); exit;
     }
 
     // Вывод одной задачи
@@ -73,8 +71,6 @@ class QueryBuilder
         $statement = $this->pdo->prepare($sql);
         // Выполнение запроса с параметрами
         $statement->execute($data);
-
-        header("Location: /"); exit;
     }
 
     //Удаление задачи
@@ -85,7 +81,5 @@ class QueryBuilder
         $statement = $this->pdo->prepare($sql);
         // Выполнение запроса с параметрами
         $statement->execute($data);
-
-        header("Location: /");
     }
 }

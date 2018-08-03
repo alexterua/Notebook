@@ -9,3 +9,5 @@ $data = [
 ];
 $db = new QueryBuilder();
 $db->update("tasks", $data);
+
+header("Location: /"); exit;

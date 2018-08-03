@@ -1,3 +1,12 @@
+<?php
+
+/*if(!$auth->isChecked()) {
+    echo "У вас недостаточно прав для просмотра данной страницы";
+    exit;
+}*/
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
